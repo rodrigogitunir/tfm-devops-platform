@@ -1,0 +1,68 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Variables y secretos
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+secrets*
+kubeconfig
+admin.conf
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfplan
+terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ansible
+*.retry
+ansible.cfg.local
+vault-password*
+.vault_pass*
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Aplicación
+node_modules/
+coverage/
+dist/
+build/
+
+# Jenkins
+.jenkins/
+jenkins_home/
+
+# Logs y temporales
+*.log
+*.tmp
+*.temp
+tmp/
+
+# Backups
+*.bak
+*.backup

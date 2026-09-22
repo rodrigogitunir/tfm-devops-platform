@@ -1,0 +1,92 @@
+Hostname: Rodrigo-Laptop
+Fecha: 2026-09-22T01:30:08+02:00
+Sistema:
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+CPU:
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           36 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  8
+On-line CPU(s) list:                     0-7
+Vendor ID:                               GenuineIntel
+BIOS Vendor ID:                          Intel(R) Corporation
+Model name:                              Intel(R) Core(TM) i7-3612QM CPU @ 2.10GHz
+BIOS Model name:                         Intel(R) Core(TM) i7-3612QM CPU @ 2.10GHz To Be Filled By O.E.M. CPU @ 2.1GHz
+BIOS CPU family:                         198
+CPU family:                              6
+Model:                                   58
+Thread(s) per core:                      2
+Core(s) per socket:                      4
+Socket(s):                               1
+Stepping:                                9
+CPU(s) scaling MHz:                      90%
+CPU max MHz:                             3100.0000
+CPU min MHz:                             1200.0000
+BogoMIPS:                                4190.67
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts vnmi md_clear flush_l1d
+Virtualization:                          VT-x
+L1d cache:                               128 KiB (4 instances)
+L1i cache:                               128 KiB (4 instances)
+L2 cache:                                1 MiB (4 instances)
+L3 cache:                                6 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-7
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             KVM: Mitigation: VMX disabled
+Vulnerability L1tf:                      Mitigation; PTE Inversion
+Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnerability Meltdown:                  Mitigation; PTI
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Vulnerable: No microcode
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Mitigation; IBPB before exit to userspace
+
+Memoria:
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi        13Gi       301Mi       799Mi       3.2Gi       2.4Gi
+Swap:          4.0Gi       872Ki       4.0Gi
+
+Disco:
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.6G  3.3M  1.6G   1% /run
+/dev/sda2       458G  187G  248G  43% /
+tmpfs           7.8G  117M  7.7G   2% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           7.8G     0  7.8G   0% /run/qemu
+overlay         458G  187G  248G  43% /var/lib/docker/overlay2/cdb873e3c1ec66b6e2c228ec767e0637cf8436efc6152e973df7de737390370f/merged
+tmpfs           1.6G  196K  1.6G   1% /run/user/1000
+
+Red:
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp2s0           DOWN           
+wlp3s0           UP             192.168.1.134/24 2a0c:5a80:5500:b401::b660/128 fe80::223:7fda:fd5d:bb3f/64 
+docker0          UP             172.17.0.1/16 fe80::fc02:46ff:fe2b:44b5/64 
+br-7a398c8158ae  DOWN           172.18.0.1/16 
+br-52f3f9278d88  DOWN           172.19.0.1/16 
+vethbe89cc1@if2  UP             fe80::a490:24ff:fe2f:41c7/64 
+vboxnet0         UP             192.168.56.1/24 fe80::800:27ff:fe00:0/64 
+vboxnet1         DOWN           
