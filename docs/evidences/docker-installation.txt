@@ -1,0 +1,26 @@
+=== Docker installation evidence ===
+Date: 2026-09-27T16:34:52+02:00
+Hostname: tfm-devops
+
+=== Operating system ===
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+VERSION_CODENAME=resolute
+
+=== Docker version ===
+Docker version 29.8.1, build 4a63305
+
+=== Docker Compose ===
+Docker Compose version v5.5.1
+
+=== Docker Buildx ===
+github.com/docker/buildx v0.37.1 0b265a9f62db554fa9aba6dd19e1bd5704bc7d8a
+
+=== Docker service ===
+active
+enabled
+
+=== User and groups ===
+uid=1000(devops) gid=1000(devops) groups=1000(devops),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),101(lxd),983(docker)
+
+=== Running containers ===
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
