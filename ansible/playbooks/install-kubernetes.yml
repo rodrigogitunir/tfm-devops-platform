@@ -1,0 +1,16 @@
+---
+- name: Install Kubernetes command-line tools
+  hosts: tfm_servers
+  become: true
+  gather_facts: true
+
+  roles:
+    - kubernetes_tools
+
+- name: Create the Minikube Kubernetes cluster
+  hosts: tfm_servers
+  become: false
+  gather_facts: false
+
+  roles:
+    - minikube_cluster

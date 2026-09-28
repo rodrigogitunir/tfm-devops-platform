@@ -1,0 +1,38 @@
+=== Kubernetes environment evidence ===
+Date: 2026-09-28T19:42:14+02:00
+Hostname: tfm-devops
+
+=== kubectl ===
+Client Version: v1.37.0
+Kustomize Version: v5.8.1
+
+=== Minikube ===
+minikube version: v1.39.0
+commit: 7a9f6a841470a207de8cf4bafcccee0969d8ba10
+
+=== Helm ===
+v4.3.0+gbec5b06
+
+=== Minikube status ===
+tfm-devops
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+=== Kubernetes nodes ===
+NAME         STATUS   ROLES           AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION             CONTAINER-RUNTIME
+tfm-devops   Ready    control-plane   151m   v1.37.0   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   7.0.0-34-generic (amd64)   containerd://2.3.4
+
+=== Kubernetes pods ===
+NAMESPACE     NAME                                 READY   STATUS    RESTARTS   AGE
+kube-system   coredns-559f6c778d-z4xbn             1/1     Running   0          151m
+kube-system   etcd-tfm-devops                      1/1     Running   0          151m
+kube-system   kindnet-dd6td                        1/1     Running   0          151m
+kube-system   kube-apiserver-tfm-devops            1/1     Running   0          151m
+kube-system   kube-controller-manager-tfm-devops   1/1     Running   0          151m
+kube-system   kube-proxy-2dphr                     1/1     Running   0          151m
+kube-system   kube-scheduler-tfm-devops            1/1     Running   0          151m
+kube-system   storage-provisioner                  1/1     Running   0          151m

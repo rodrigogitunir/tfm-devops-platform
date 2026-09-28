@@ -1,0 +1,132 @@
+---
+- name: Display detected system architecture
+  ansible.builtin.debug:
+    msg:
+      - "Distribution: {{ ansible_facts['distribution'] }}"
+      - "Architecture: {{ ansible_facts['architecture'] }}"
+      - "Architecture map: {{ kubernetes_binary_architecture_map }}"
+
+- name: Verify supported system
+  ansible.builtin.assert:
+    that:
+      - ansible_facts["distribution"] == "Ubuntu"
+      - ansible_facts["architecture"] in kubernetes_binary_architecture_map
+    fail_msg: >-
+      Unsupported system: distribution={{ ansible_facts['distribution'] }},
+      architecture={{ ansible_facts['architecture'] }}
+    success_msg: >-
+      Supported system: Ubuntu {{ ansible_facts['architecture'] }}
+
+- name: Define Kubernetes binary architecture
+  ansible.builtin.set_fact:
+    kubernetes_binary_architecture: >-
+      {{ kubernetes_binary_architecture_map[ansible_facts["architecture"]] }}
+
+- name: Display selected Kubernetes architecture
+  ansible.builtin.debug:
+    msg: "Kubernetes binary architecture: {{ kubernetes_binary_architecture }}"
+
+- name: Verify that the system clock is synchronized
+  ansible.builtin.command:
+    cmd: timedatectl show --property=NTPSynchronized --value
+  register: ntp_synchronized
+  changed_when: false
+
+- name: Stop when the system clock is not synchronized
+  ansible.builtin.assert:
+    that:
+      - ntp_synchronized.stdout | trim == "yes"
+    fail_msg: >-
+      The virtual machine clock is not synchronized.
+      Run chronyc makestep before continuing.
+    success_msg: "System clock is synchronized."
+
+- name: Install required packages
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - curl
+      - tar
+      - gzip
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Download kubectl binary
+  ansible.builtin.get_url:
+    url: >-
+      https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/{{ kubernetes_binary_architecture }}/kubectl
+    dest: /usr/local/bin/kubectl
+    mode: "0755"
+    owner: root
+    group: root
+    checksum: >-
+      sha256:https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/{{ kubernetes_binary_architecture }}/kubectl.sha256
+
+- name: Download Minikube binary
+  ansible.builtin.get_url:
+    url: >-
+      https://github.com/kubernetes/minikube/releases/download/{{ minikube_version }}/minikube-linux-{{ kubernetes_binary_architecture }}
+    dest: /usr/local/bin/minikube
+    mode: "0755"
+    owner: root
+    group: root
+
+- name: Create temporary Helm directory
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: helm
+  register: helm_temporary_directory
+
+- name: Download Helm archive
+  ansible.builtin.get_url:
+    url: >-
+      https://get.helm.sh/helm-{{ helm_version }}-linux-{{ kubernetes_binary_architecture }}.tar.gz
+    dest: "{{ helm_temporary_directory.path }}/helm.tar.gz"
+    mode: "0644"
+
+- name: Extract Helm archive
+  ansible.builtin.unarchive:
+    src: "{{ helm_temporary_directory.path }}/helm.tar.gz"
+    dest: "{{ helm_temporary_directory.path }}"
+    remote_src: true
+
+- name: Install Helm binary
+  ansible.builtin.copy:
+    src: >-
+      {{ helm_temporary_directory.path }}/linux-{{ kubernetes_binary_architecture }}/helm
+    dest: /usr/local/bin/helm
+    owner: root
+    group: root
+    mode: "0755"
+    remote_src: true
+
+- name: Remove temporary Helm directory
+  ansible.builtin.file:
+    path: "{{ helm_temporary_directory.path }}"
+    state: absent
+
+- name: Obtain kubectl client version
+  ansible.builtin.command:
+    cmd: kubectl version --client
+  register: kubectl_client_version
+  changed_when: false
+
+- name: Obtain Minikube version
+  ansible.builtin.command:
+    cmd: minikube version
+  register: minikube_installed_version
+  changed_when: false
+
+- name: Obtain Helm version
+  ansible.builtin.command:
+    cmd: helm version --short
+  register: helm_installed_version
+  changed_when: false
+
+- name: Display installed Kubernetes tools
+  ansible.builtin.debug:
+    msg:
+      - "{{ kubectl_client_version.stdout }}"
+      - "{{ minikube_installed_version.stdout }}"
+      - "{{ helm_installed_version.stdout }}"
