@@ -1,0 +1,15 @@
+deployer_service_accounts = {
+  "dev" = "deployer-dev"
+  "pre" = "deployer-pre"
+  "pro" = "deployer-pro"
+}
+environment_namespaces = {
+  "dev" = "dev"
+  "pre" = "pre"
+  "pro" = "pro"
+}
+resource_quotas = {
+  "dev" = "dev-resource-quota"
+  "pre" = "pre-resource-quota"
+  "pro" = "pro-resource-quota"
+}

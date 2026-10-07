@@ -1,0 +1,40 @@
+=== Terraform Kubernetes infrastructure ===
+Date: 2026-10-07T19:06:28+02:00
+
+=== Namespaces ===
+NAME   STATUS   AGE
+dev    Active   29m
+pre    Active   29m
+pro    Active   29m
+
+=== Resource quotas ===
+NAMESPACE   NAME                 REQUEST                                                      LIMIT                                          AGE
+dev         dev-resource-quota   pods: 0/10, requests.cpu: 0/750m, requests.memory: 0/768Mi   limits.cpu: 0/1500m, limits.memory: 0/1536Mi   29m
+pre         pre-resource-quota   pods: 0/10, requests.cpu: 0/750m, requests.memory: 0/768Mi   limits.cpu: 0/1500m, limits.memory: 0/1536Mi   29m
+pro         pro-resource-quota   pods: 0/10, requests.cpu: 0/1, requests.memory: 0/1Gi        limits.cpu: 0/2, limits.memory: 0/2Gi          29m
+
+=== Limit ranges ===
+NAMESPACE   NAME                 CREATED AT
+dev         dev-default-limits   2026-09-28T22:28:37Z
+pre         pre-default-limits   2026-09-28T22:28:37Z
+pro         pro-default-limits   2026-09-28T22:28:37Z
+
+=== Service accounts ===
+NAME           AGE
+default        29m
+deployer-dev   29m
+NAME           AGE
+default        29m
+deployer-pre   29m
+NAME           AGE
+default        29m
+deployer-pro   29m
+
+=== Network policies ===
+NAMESPACE   NAME                   POD-SELECTOR   AGE
+dev         allow-same-namespace   <none>         29m
+dev         default-deny-ingress   <none>         29m
+pre         allow-same-namespace   <none>         29m
+pre         default-deny-ingress   <none>         29m
+pro         allow-same-namespace   <none>         29m
+pro         default-deny-ingress   <none>         29m

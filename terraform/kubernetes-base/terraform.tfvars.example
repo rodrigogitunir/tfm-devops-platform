@@ -1,0 +1,41 @@
+kubeconfig_path    = "~/.kube/tfm-devops-config"
+kubeconfig_context = "tfm-devops"
+project_name       = "tfm-devops-platform"
+
+environments = {
+  dev = {
+    pod_quota              = 10
+    requests_cpu           = "750m"
+    requests_memory        = "768Mi"
+    limits_cpu             = "1500m"
+    limits_memory          = "1536Mi"
+    default_request_cpu    = "100m"
+    default_request_memory = "128Mi"
+    default_limit_cpu      = "300m"
+    default_limit_memory   = "256Mi"
+  }
+
+  pre = {
+    pod_quota              = 10
+    requests_cpu           = "750m"
+    requests_memory        = "768Mi"
+    limits_cpu             = "1500m"
+    limits_memory          = "1536Mi"
+    default_request_cpu    = "100m"
+    default_request_memory = "128Mi"
+    default_limit_cpu      = "300m"
+    default_limit_memory   = "256Mi"
+  }
+
+  pro = {
+    pod_quota              = 10
+    requests_cpu           = "1"
+    requests_memory        = "1Gi"
+    limits_cpu             = "2"
+    limits_memory          = "2Gi"
+    default_request_cpu    = "150m"
+    default_request_memory = "128Mi"
+    default_limit_cpu      = "500m"
+    default_limit_memory   = "512Mi"
+  }
+}
