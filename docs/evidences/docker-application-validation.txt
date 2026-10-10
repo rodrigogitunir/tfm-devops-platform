@@ -1,0 +1,18 @@
+=== Docker application validation ===
+Date: 2026-10-10T13:36:56+02:00
+
+=== Container status ===
+CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS                   PORTS                                         NAMES
+bf9b74264f04   tfm-devops-app:1.0.0   "gunicorn --bind 0.0…"   6 minutes ago   Up 6 minutes (healthy)   0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp   tfm-devops-app
+
+=== Health status ===
+running / healthy
+
+=== Application endpoint ===
+{"application":"TFM DevOps Platform","environment":"local","status":"running","version":"1.0.0"}
+
+=== Health endpoint ===
+{"environment":"local","status":"healthy","version":"1.0.0"}
+
+=== Readiness endpoint ===
+{"status":"ready","uptime_seconds":383.53}
