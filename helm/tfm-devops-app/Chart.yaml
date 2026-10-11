@@ -1,0 +1,7 @@
+apiVersion: v2
+name: tfm-devops-app
+description: Helm chart for the TFM DevOps demonstration application
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+kubeVersion: ">=1.30.0-0"

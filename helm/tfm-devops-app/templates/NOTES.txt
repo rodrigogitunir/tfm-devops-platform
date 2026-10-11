@@ -1,0 +1,25 @@
+The TFM DevOps application has been deployed.
+
+Release:
+  {{ .Release.Name }}
+
+Namespace:
+  {{ .Release.Namespace }}
+
+Environment:
+  {{ .Values.application.environment }}
+
+Check the deployment:
+
+  kubectl get deployment,pods,service -n {{ .Release.Namespace }}
+
+Access the application temporarily:
+
+  kubectl port-forward \
+    --namespace {{ .Release.Namespace }} \
+    service/{{ include "tfm-devops-app.fullname" . }} \
+    8081:{{ .Values.service.port }}
+
+Then open:
+
+  http://127.0.0.1:8081/

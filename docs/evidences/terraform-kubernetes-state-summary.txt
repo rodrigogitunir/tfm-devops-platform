@@ -1,0 +1,531 @@
+# kubernetes_limit_range_v1.environment["dev"]:
+resource "kubernetes_limit_range_v1" "environment" {
+    id = "dev/dev-default-limits"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "dev"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "dev-default-limits"
+        namespace        = "dev"
+        resource_version = "24057"
+        uid              = "eeb0b6ae-77e2-4644-96da-23f70c95f2ad"
+    }
+
+    spec {
+        limit {
+            default         = {
+                "cpu"    = "300m"
+                "memory" = "256Mi"
+            }
+            default_request = {
+                "cpu"    = "100m"
+                "memory" = "128Mi"
+            }
+            type            = "Container"
+        }
+    }
+}
+
+# kubernetes_limit_range_v1.environment["pre"]:
+resource "kubernetes_limit_range_v1" "environment" {
+    id = "pre/pre-default-limits"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pre"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "pre-default-limits"
+        namespace        = "pre"
+        resource_version = "24073"
+        uid              = "34f16a13-ef68-45eb-8818-d3237efee6de"
+    }
+
+    spec {
+        limit {
+            default         = {
+                "cpu"    = "300m"
+                "memory" = "256Mi"
+            }
+            default_request = {
+                "cpu"    = "100m"
+                "memory" = "128Mi"
+            }
+            type            = "Container"
+        }
+    }
+}
+
+# kubernetes_limit_range_v1.environment["pro"]:
+resource "kubernetes_limit_range_v1" "environment" {
+    id = "pro/pro-default-limits"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pro"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "pro-default-limits"
+        namespace        = "pro"
+        resource_version = "24056"
+        uid              = "524e593c-e433-4664-8a3e-2308bff47675"
+    }
+
+    spec {
+        limit {
+            default         = {
+                "cpu"    = "500m"
+                "memory" = "512Mi"
+            }
+            default_request = {
+                "cpu"    = "150m"
+                "memory" = "128Mi"
+            }
+            type            = "Container"
+        }
+    }
+}
+
+# kubernetes_namespace_v1.environment["dev"]:
+resource "kubernetes_namespace_v1" "environment" {
+    id                               = "dev"
+    wait_for_default_service_account = false
+
+    metadata {
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "dev"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "dev"
+        resource_version = "24051"
+        uid              = "49aa39a7-5f81-4120-9440-b7dc64ae7b88"
+    }
+}
+
+# kubernetes_namespace_v1.environment["pre"]:
+resource "kubernetes_namespace_v1" "environment" {
+    id                               = "pre"
+    wait_for_default_service_account = false
+
+    metadata {
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pre"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "pre"
+        resource_version = "24049"
+        uid              = "5ccd093c-b658-4062-b734-36b8cfae7629"
+    }
+}
+
+# kubernetes_namespace_v1.environment["pro"]:
+resource "kubernetes_namespace_v1" "environment" {
+    id                               = "pro"
+    wait_for_default_service_account = false
+
+    metadata {
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pro"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "pro"
+        resource_version = "24050"
+        uid              = "16ce0564-9c33-49e9-a07b-6ea16db23bec"
+    }
+}
+
+# kubernetes_network_policy_v1.allow_same_namespace["dev"]:
+resource "kubernetes_network_policy_v1" "allow_same_namespace" {
+    id = "dev/allow-same-namespace"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 1
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "dev"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "allow-same-namespace"
+        namespace        = "dev"
+        resource_version = "24062"
+        uid              = "e490643f-813d-4f05-a013-2467484bb067"
+    }
+
+    spec {
+        policy_types = [
+            "Ingress",
+        ]
+
+        ingress {
+            from {
+                pod_selector {
+                }
+            }
+        }
+
+        pod_selector {
+        }
+    }
+}
+
+# kubernetes_network_policy_v1.allow_same_namespace["pre"]:
+resource "kubernetes_network_policy_v1" "allow_same_namespace" {
+    id = "pre/allow-same-namespace"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 1
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pre"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "allow-same-namespace"
+        namespace        = "pre"
+        resource_version = "24067"
+        uid              = "ba996585-4c87-4d44-8a52-82d65a9e7d4d"
+    }
+
+    spec {
+        policy_types = [
+            "Ingress",
+        ]
+
+        ingress {
+            from {
+                pod_selector {
+                }
+            }
+        }
+
+        pod_selector {
+        }
+    }
+}
+
+# kubernetes_network_policy_v1.allow_same_namespace["pro"]:
+resource "kubernetes_network_policy_v1" "allow_same_namespace" {
+    id = "pro/allow-same-namespace"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 1
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pro"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "allow-same-namespace"
+        namespace        = "pro"
+        resource_version = "24063"
+        uid              = "4548e1a1-d74e-4bed-8757-d23fa4bf966f"
+    }
+
+    spec {
+        policy_types = [
+            "Ingress",
+        ]
+
+        ingress {
+            from {
+                pod_selector {
+                }
+            }
+        }
+
+        pod_selector {
+        }
+    }
+}
+
+# kubernetes_network_policy_v1.default_deny_ingress["dev"]:
+resource "kubernetes_network_policy_v1" "default_deny_ingress" {
+    id = "dev/default-deny-ingress"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 1
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "dev"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "default-deny-ingress"
+        namespace        = "dev"
+        resource_version = "24065"
+        uid              = "5b86f8c3-16a4-49ae-ac52-1f3e7f891d0f"
+    }
+
+    spec {
+        policy_types = [
+            "Ingress",
+        ]
+
+        pod_selector {
+        }
+    }
+}
+
+# kubernetes_network_policy_v1.default_deny_ingress["pre"]:
+resource "kubernetes_network_policy_v1" "default_deny_ingress" {
+    id = "pre/default-deny-ingress"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 1
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pre"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "default-deny-ingress"
+        namespace        = "pre"
+        resource_version = "24058"
+        uid              = "2e4fceb7-e684-41fb-922f-087eb3f579aa"
+    }
+
+    spec {
+        policy_types = [
+            "Ingress",
+        ]
+
+        pod_selector {
+        }
+    }
+}
+
+# kubernetes_network_policy_v1.default_deny_ingress["pro"]:
+resource "kubernetes_network_policy_v1" "default_deny_ingress" {
+    id = "pro/default-deny-ingress"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 1
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pro"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "default-deny-ingress"
+        namespace        = "pro"
+        resource_version = "24068"
+        uid              = "bf540235-1a75-439f-93b6-27dcd5cd2d1f"
+    }
+
+    spec {
+        policy_types = [
+            "Ingress",
+        ]
+
+        pod_selector {
+        }
+    }
+}
+
+# kubernetes_resource_quota_v1.environment["dev"]:
+resource "kubernetes_resource_quota_v1" "environment" {
+    id = "dev/dev-resource-quota"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "dev"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "dev-resource-quota"
+        namespace        = "dev"
+        resource_version = "24072"
+        uid              = "bc64df6f-8cee-43dd-b3f6-2216d6e5af1e"
+    }
+
+    spec {
+        hard = {
+            "limits.cpu"      = "1500m"
+            "limits.memory"   = "1536Mi"
+            "pods"            = "10"
+            "requests.cpu"    = "750m"
+            "requests.memory" = "768Mi"
+        }
+    }
+}
+
+# kubernetes_resource_quota_v1.environment["pre"]:
+resource "kubernetes_resource_quota_v1" "environment" {
+    id = "pre/pre-resource-quota"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pre"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "pre-resource-quota"
+        namespace        = "pre"
+        resource_version = "24074"
+        uid              = "3ee803ef-76ea-4535-bb03-62c4855b0cba"
+    }
+
+    spec {
+        hard = {
+            "limits.cpu"      = "1500m"
+            "limits.memory"   = "1536Mi"
+            "pods"            = "10"
+            "requests.cpu"    = "750m"
+            "requests.memory" = "768Mi"
+        }
+    }
+}
+
+# kubernetes_resource_quota_v1.environment["pro"]:
+resource "kubernetes_resource_quota_v1" "environment" {
+    id = "pro/pro-resource-quota"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pro"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "pro-resource-quota"
+        namespace        = "pro"
+        resource_version = "24075"
+        uid              = "b9bd6fa3-a71c-482f-90b1-3e99de215842"
+    }
+
+    spec {
+        hard = {
+            "limits.cpu"      = "2"
+            "limits.memory"   = "2Gi"
+            "pods"            = "10"
+            "requests.cpu"    = "1"
+            "requests.memory" = "1Gi"
+        }
+    }
+}
+
+# kubernetes_service_account_v1.deployer["dev"]:
+resource "kubernetes_service_account_v1" "deployer" {
+    automount_service_account_token = false
+    default_secret_name             = [90mnull[0m[0m
+    id                              = "dev/deployer-dev"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "dev"
+            "purpose"                      = "application-deployment"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "deployer-dev"
+        namespace        = "dev"
+        resource_version = "24055"
+        uid              = "18983a0f-f5b3-40ab-bd05-98da4c8c70ac"
+    }
+}
+
+# kubernetes_service_account_v1.deployer["pre"]:
+resource "kubernetes_service_account_v1" "deployer" {
+    automount_service_account_token = false
+    default_secret_name             = [90mnull[0m[0m
+    id                              = "pre/deployer-pre"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pre"
+            "purpose"                      = "application-deployment"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "deployer-pre"
+        namespace        = "pre"
+        resource_version = "24059"
+        uid              = "440f62ad-772c-4c69-a1f3-293b33db7100"
+    }
+}
+
+# kubernetes_service_account_v1.deployer["pro"]:
+resource "kubernetes_service_account_v1" "deployer" {
+    automount_service_account_token = false
+    default_secret_name             = [90mnull[0m[0m
+    id                              = "pro/deployer-pro"
+
+    metadata {
+        generate_name    = [90mnull[0m[0m
+        generation       = 0
+        labels           = {
+            "app.kubernetes.io/managed-by" = "terraform"
+            "app.kubernetes.io/part-of"    = "tfm-devops-platform"
+            "environment"                  = "pro"
+            "purpose"                      = "application-deployment"
+            "tfm.unir/environment-model"   = "multi-environment"
+        }
+        name             = "deployer-pro"
+        namespace        = "pro"
+        resource_version = "24060"
+        uid              = "32454414-1d7a-4843-a3b1-16f18b97897c"
+    }
+}
+
+
+Outputs:
+
+deployer_service_accounts = {
+    dev = "deployer-dev"
+    pre = "deployer-pre"
+    pro = "deployer-pro"
+}
+environment_namespaces = {
+    dev = "dev"
+    pre = "pre"
+    pro = "pro"
+}
+resource_quotas = {
+    dev = "dev-resource-quota"
+    pre = "pre-resource-quota"
+    pro = "pro-resource-quota"
+}

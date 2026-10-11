@@ -1,0 +1,16 @@
+replicaCount: 1
+
+application:
+  environment: pre
+  version: "1.0.0"
+
+serviceAccount:
+  name: deployer-pre
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 400m
+    memory: 384Mi

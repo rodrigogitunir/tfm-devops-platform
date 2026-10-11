@@ -1,0 +1,16 @@
+replicaCount: 2
+
+application:
+  environment: pro
+  version: "1.0.0"
+
+serviceAccount:
+  name: deployer-pro
+
+resources:
+  requests:
+    cpu: 150m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
