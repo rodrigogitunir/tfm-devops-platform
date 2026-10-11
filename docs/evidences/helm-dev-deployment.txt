@@ -1,0 +1,26 @@
+=== Helm deployment evidence ===
+Date: 2026-10-10T16:56:25+02:00
+
+=== Helm release ===
+NAME          	NAMESPACE	REVISION	UPDATED                                 	STATUS  	CHART               	APP VERSION
+tfm-devops-app	dev      	1       	2026-10-10 16:43:10.234984053 +0200 CEST	deployed	tfm-devops-app-0.1.0	1.0.0      
+
+=== Deployment resources ===
+NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/tfm-devops-app-tfm-devops-app   1/1     1            1           13m
+
+NAME                                                READY   STATUS    RESTARTS   AGE
+pod/tfm-devops-app-tfm-devops-app-dd5bb6744-7cvnj   1/1     Running   0          13m
+
+NAME                                    TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/tfm-devops-app-tfm-devops-app   ClusterIP   10.97.147.30   <none>        80/TCP    13m
+
+NAME                                      DATA   AGE
+configmap/kube-root-ca.crt                1      149m
+configmap/tfm-devops-app-tfm-devops-app   2      13m
+
+=== Application image ===
+tfm-devops-app:1.0.0
+
+=== Application environment ===
+dev
