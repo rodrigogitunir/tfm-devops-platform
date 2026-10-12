@@ -2,12 +2,12 @@ replicaCount: 1
 
 image:
   repository: tfm-devops-app
-  tag: "1.0.0"
+  tag: "1.1.0"
   pullPolicy: IfNotPresent
 
 application:
   environment: dev
-  version: "1.0.0"
+  version: "1.1.0"
 
 serviceAccount:
   name: deployer-dev

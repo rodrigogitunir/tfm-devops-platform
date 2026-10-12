@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.description="Demo application for the DevOps mast
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV APP_ENV=local
-ENV APP_VERSION=1.0.0
+ENV APP_VERSION=1.1.0
 
 WORKDIR /app
 

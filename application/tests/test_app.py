@@ -18,6 +18,8 @@ def test_index_endpoint():
     assert response.status_code == 200
     assert data["application"] == "TFM DevOps Platform"
     assert data["status"] == "running"
+    assert data["deployment"] == "managed-with-helm"
+    assert data["message"] == "Version 1.1.0 deployed successfully"
 
 
 def test_health_endpoint():

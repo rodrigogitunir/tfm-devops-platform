@@ -26,6 +26,8 @@ def index():
         environment=APP_ENV,
         version=APP_VERSION,
         status="running",
+        deployment="managed-with-helm",
+        message="Version 1.1.0 deployed successfully",
     )
 
 
