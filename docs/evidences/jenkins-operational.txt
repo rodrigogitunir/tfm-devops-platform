@@ -1,0 +1,28 @@
+=== Jenkins operational evidence ===
+Date: 2026-11-02T23:51:16+01:00
+
+=== Jenkins service ===
+active
+enabled
+
+=== Jenkins user ===
+uid=104(jenkins) gid=107(jenkins) groups=107(jenkins),983(docker)
+
+=== Docker access ===
+29.8.1
+
+=== Kubernetes access ===
+NAME         STATUS   ROLES           AGE   VERSION
+tfm-devops   Ready    control-plane   23d   v1.37.0
+
+=== Helm releases ===
+NAME          	NAMESPACE	REVISION	UPDATED                                 	STATUS  	CHART               	APP VERSION
+tfm-devops-app	dev      	6       	2026-11-02 23:29:12.584321432 +0100 CET 	deployed	tfm-devops-app-0.2.0	1.1.0      
+tfm-devops-app	pre      	2       	2026-10-15 23:39:38.344716133 +0200 CEST	deployed	tfm-devops-app-0.2.0	1.1.0      
+tfm-devops-app	pro      	2       	2026-10-15 23:40:59.198202276 +0200 CEST	deployed	tfm-devops-app-0.2.0	1.1.0      
+
+=== Application deployments ===
+NAMESPACE   NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+dev         tfm-devops-app-tfm-devops-app   1/1     1            1           23d
+pre         tfm-devops-app-tfm-devops-app   1/1     1            1           21d
+pro         tfm-devops-app-tfm-devops-app   2/2     2            2           21d
